@@ -1,4 +1,5 @@
 import 'package:e_commerce/auth/splash_screen.dart';
+import 'package:e_commerce/const/appcolor.dart';
 import 'package:e_commerce/screen/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter E-Commerce',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primaryColor: primaryColor,
+            scaffoldBackgroundColor: scaffoldBackgroundColor,
           ),
           // home:  const SplashScreen(),
           home: HomeScreen(),
