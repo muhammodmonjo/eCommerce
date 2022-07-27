@@ -139,22 +139,29 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductOverview(),),);
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductOverview(
+                          productImage: "assets/58bf1e2ae443f41d77c734ab.png",
+                          productName: "Fresh Basil",
+                        ),),);
                       },
                     child: SingalProducts(
                       productImage: "assets/58bf1e2ae443f41d77c734ab.png",
                       productName: "Fresh Basil",
                       productPrice: "10\$/100 Gram",
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductOverview(),),);
-                      },
+                      // onTap: (){
+                      //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductOverview(),),);
+                      // },
+                      onTap: (){},
                     ),
                   ),
                   SingalProducts(
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => ProductOverview(),
+                          builder: (context) => ProductOverview(
+                            productImage: "assets/58ee8e023545163ec1942cd7.png",
+                            productName: "Fresh Ming Leaves",
+                          ),
                         ),
                       );
                     },
