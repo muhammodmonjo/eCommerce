@@ -1,6 +1,8 @@
 import 'package:e_commerce/screen/home_screen/drawer_side.dart';
 import 'package:e_commerce/screen/home_screen/singal_products.dart';
 import 'package:e_commerce/screen/product_overview/product_overview.dart';
+import 'package:e_commerce/screen/review_cart/review_cart.dart';
+import 'package:e_commerce/screen/search/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,14 +29,24 @@ class HomeScreen extends StatelessWidget {
           CircleAvatar(
             radius: 15,
             backgroundColor: Color(0xffd4d181),
-            child: Icon(Icons.search,size: 20,color: Colors.black,),
+            child: IconButton(
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Search(),),);
+              },
+              icon: Icon(Icons.search,size: 20,color: Colors.black,),
+            ),
           ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 7),
             child: CircleAvatar(
               radius: 15,
               backgroundColor: Color(0xffd4d181),
-              child: Icon(Icons.shopping_cart,size: 20,color: Colors.black,),
+              child: IconButton(
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ReviewCart(),),);
+                },
+                icon: Icon(Icons.shopping_cart,size: 20,color: Colors.black,),
+              ),
             ),
           ),
         ],
@@ -139,22 +151,29 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductOverview(),),);
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductOverview(
+                          productImage: "assets/58bf1e2ae443f41d77c734ab.png",
+                          productName: "Fresh Basil",
+                        ),),);
                       },
                     child: SingalProducts(
                       productImage: "assets/58bf1e2ae443f41d77c734ab.png",
                       productName: "Fresh Basil",
                       productPrice: "10\$/100 Gram",
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductOverview(),),);
-                      },
+                      // onTap: (){
+                      //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductOverview(),),);
+                      // },
+                      onTap: (){},
                     ),
                   ),
                   SingalProducts(
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => ProductOverview(),
+                          builder: (context) => ProductOverview(
+                            productImage: "assets/58ee8e023545163ec1942cd7.png",
+                            productName: "Fresh Ming Leaves",
+                          ),
                         ),
                       );
                     },

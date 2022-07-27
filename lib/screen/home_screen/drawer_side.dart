@@ -1,11 +1,14 @@
+import 'package:e_commerce/screen/home_screen/home_screen.dart';
+import 'package:e_commerce/screen/my%20profile/my_profile.dart';
+import 'package:e_commerce/screen/review_cart/review_cart.dart';
 import 'package:flutter/material.dart';
 
 class DrawerSide extends StatelessWidget {
-  Widget listTile({required String title,required IconData icon}){
+  Widget listTile({required String title,required IconData icon, required Function onTap}){
     return ListTile(
       leading: Icon(
         icon,
-        size: 32,
+        size: 28,
       ),
       title: Text(
         title,
@@ -32,6 +35,7 @@ class DrawerSide extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 40,
                       backgroundColor: Colors.yellow,
+                      backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXjEYhbgxMB_qdQLjyIoHGxsqqGmXk7v59A&usqp=CAU"),
                     ),
                   ),
                   SizedBox(width: 15,),
@@ -54,14 +58,66 @@ class DrawerSide extends StatelessWidget {
                 ],
               ),
             ),
-            listTile(title: "Home", icon: Icons.home_outlined),
-            listTile(title: "Review Cart", icon: Icons.shop_outlined),
-            listTile(title: "My Profile", icon: Icons.person_outline),
-            listTile(title: "Notification", icon: Icons.notifications_outlined),
-            listTile(title: "Rating & Review", icon: Icons.star_outlined),
-            listTile(title: "Wishlist", icon: Icons.favorite_outline),
-            listTile(title: "Raise a Complaint", icon: Icons.text_snippet_outlined),
-            listTile(title: "FAQs", icon: Icons.sms_failed_outlined),
+            InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),),);
+              },
+              child: listTile(
+                title: "Home",
+                icon: Icons.home_outlined,
+                onTap: (){},
+              ),
+            ),
+
+            InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ReviewCart(),),);
+              },
+              child:listTile(
+                title: "Review Cart",
+                icon: Icons.shop_outlined,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ReviewCart(),),);
+                 },
+              ),
+            ),
+            InkWell(
+              child: listTile(
+                title: "My Profile",
+                icon: Icons.person_outline,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyProfile(),),);
+                  },
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyProfile(),),);
+              },
+            ),
+            listTile(
+              title: "Notification",
+              icon: Icons.notifications_outlined,
+              onTap: (){},
+            ),
+            listTile(
+                title: "Rating & Review",
+                icon: Icons.star_outlined,
+              onTap: (){},
+            ),
+            listTile(
+              title: "Wishlist",
+              icon: Icons.favorite_outline,
+              onTap: (){},
+            ),
+            listTile(
+              title: "Raise a Complaint",
+              icon: Icons.text_snippet_outlined,
+              onTap: (){},
+            ),
+            listTile(
+              title: "FAQs",
+              icon: Icons.sms_failed_outlined,
+              onTap: (){},
+            ),
             SizedBox(height: 10,),
             Container(
               // height: 100,

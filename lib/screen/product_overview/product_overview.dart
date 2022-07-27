@@ -6,7 +6,11 @@ import 'package:flutter/material.dart';
 enum SinginCharacter {fill, outline}
 
 class ProductOverview extends StatefulWidget {
-  const ProductOverview({Key? key}) : super(key: key);
+
+  final String productName;
+  final String productImage;
+
+  const ProductOverview({super.key, required this.productName, required this.productImage});
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();
@@ -15,6 +19,7 @@ class ProductOverview extends StatefulWidget {
 class _ProductOverviewState extends State<ProductOverview> {
 
   SinginCharacter _character = SinginCharacter.fill;
+
 
 Widget bottomNavigationBar({
   required Color iconColor,
@@ -76,13 +81,13 @@ Widget bottomNavigationBar({
               child: Column(
                 children: [
                   ListTile(
-                    title: Text("Fresh Basil"),
+                    title: Text(widget.productName),
                     subtitle: Text("\$10"),
                   ),
                   Container(
                     height: 250,
                     padding: EdgeInsets.all(40),
-                    child: Image.asset("assets/58bf1e2ae443f41d77c734ab.png"),
+                    child: Image.asset(widget.productImage),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
